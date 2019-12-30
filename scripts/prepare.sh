@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-CONVERGENCE_VERSION=1.0.0-SNAPSHOT
+CONVERGENCE_VERSION=1.0.0-rc.4
 
 # Prepare Directories
 mkdir -p build
