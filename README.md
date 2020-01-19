@@ -3,6 +3,8 @@
 </div>
 
 # Convergence Server Container
+The Convergence Server provide the core services of the Convergence Realtime Collaboration Framework. Convergence enables developers to rapidly integrate realtime collaboration directly into their applications.
+
 This repository contains the [OCI](https://www.opencontainers.org/) container build for the Convergence Server. It makes use of the Convergence Server Universal distribution that is published to [Maven Central](https://repo1.maven.org/maven2/com/convergencelabs/convergence-server-universal/).
 
 ## Convergence Admin User
