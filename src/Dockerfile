@@ -38,5 +38,3 @@ EXPOSE 8081
 WORKDIR /opt/convergence-server/
 
 ENTRYPOINT ["/opt/convergence-server/bin/convergence-server"]
-
-CMD ["-c", "/opt/convergence-server/conf/convergence-server.conf", "-Dlog4j.configurationFile=/opt/convergence-server/conf/log4j2.xml"]

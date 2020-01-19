@@ -18,9 +18,9 @@ The container supports the following environment variables:
 - `CONVERGENCE_ADMIN_EMAIL`: The email of default Convergence admin user. The default is `convergence@example.com`.
 - `CONVERGENCE_ADMIN_DISPLAY_NAME`: The display name of default Convergence admin user. The default is `Server Admin`.
 - `EXTERNAL_HOSTNAME`: The externally reachable hostname of this server instance. This is often required if the server is behind a proxy, or hosted in a container environment which uses DNS name mappings.  The default is `localhost`.
-- `SERVER_ROLES`: Defines the functionality that this instance of the server will provide. A comma separated list can be provided. Valid values are: `backend`, `restApi`, and `realtimeApi`.
-- `CLUSTER_SEED_NODES`: A comma separated list of seed nodes in order for the server to join the cluster. This can be set to `localhost` if no cluster seeds are used and only one server container is run.
-- `LOG4J_CONFIG_FILE`: The path to an alternate log4j2.xml file to configure logging.
+- `CONVERGENCE_SERVER_ROLES`: Defines the functionality that this instance of the server will provide. A comma separated list can be provided. Valid values are: `backend`, `restApi`, and `realtimeApi`.
+- `CONVERGENCE_CLUSTER_SEEDS`: A comma separated list of seed nodes in order for the server to join the cluster. This can be set to `localhost` if no cluster seeds are used and only one server container is run.
+- `CONVERGENCE_LOG4J_CONFIG_FILE`: The path to an alternate log4j2.xml file to configure logging.
 
 ### Example Run Command
 Running the container might look something like this:
@@ -30,19 +30,28 @@ docker run --rm \
   --publish 2551:2551 \
   --publish 8080:8080 \
   --publish 8081:8081 \
-  --env DB_URI="localhost:2424" \
+  --env DB_URI="remote:orientdb:2424" \
   --env DB_ADMIN_USERNAME="root" \
   --env DB_ADMIN_PASSWORD="password" \
-  --env EXTERNAL_HOSTNAME="localhost" \
-  --env SERVER_ROLES="backend,restApi,realtimeApi" \
-  --env CLUSTER_SEED_NODES="host1,host2" \
+  --env CONVERGENCE_SERVER_ROLES="backend,restApi,realtimeApi" \
+  --env CONVERGENCE_CLUSTER_SEEDS="localhost" \
+  --link orientdb:orientdb \
   convergencelabs/convergence-server
 ```
+
+*Note the use of `--link` see below for how to set up an orientdb container*
 
 ### Ports
 - Port 2551 will be exposed to support akka remoting.
 - If the `restApi` role is activated, the REST API will be served on port `8081`.
 - If the `realtimeApi` role is activated, the Realtime API will be served on port `8080`.
+
+### Orient DB
+An [OrientDB](https://github.com/orientechnologies/orientdb) instance is required to run the Convergence Server.  The easies way to get one up and running is to run the following docker command:
+
+```shell script
+docker run --rm --name orientdb -p 2424:2424 -p 2480:2480 -e ORIENTDB_ROOT_PASSWORD=password orientdb:3.0.26
+```
 
 ## Support
 [Convergence Labs](https://convergencelabs.com) provides several different channels for support:
