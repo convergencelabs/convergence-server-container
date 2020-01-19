@@ -54,7 +54,11 @@ docker run --rm \
 An [OrientDB](https://github.com/orientechnologies/orientdb) instance is required to run the Convergence Server.  The easies way to get one up and running is to run the following docker command:
 
 ```shell script
-docker run --rm --name orientdb -p 2424:2424 -p 2480:2480 -e ORIENTDB_ROOT_PASSWORD=password orientdb:3.0.26
+docker run --rm --name orientdb \
+  -p 2424:2424 \
+  -p 2480:2480 \
+  -e ORIENTDB_ROOT_PASSWORD=password \
+  orientdb:3.0.26
 ```
 
 ## Support
