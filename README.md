@@ -1,9 +1,9 @@
-<div style="text-align: center">
+<div align="center">
   <img alt="Convergence Logo" height="80" src="https://convergence.io/assets/img/convergence-logo.png" >
 </div>
 
 # Convergence Server Container
-
+This repository contains the [OCI](https://www.opencontainers.org/) container build for the Convergence Server. It makes use of the Convergence Server Universal distribution that is published to [Maven Central](https://repo1.maven.org/maven2/com/convergencelabs/convergence-server-universal/).
 
 ## Convergence Admin User
 In order to log into the Convergence Server for the first time, a default administrative user must be created (see the environment variables below). When the server starts up for the first time, it will create this user. On subsequent restarts, the Convergence Server will ensure that the user still exists and reset the password to the configured value.
