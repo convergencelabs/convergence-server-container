@@ -10,17 +10,17 @@ In order to log into the Convergence Server for the first time, a default admini
 
 ## Configuration and Running
 The container supports the following environment variables:
-- `DB_URI`: Provides the URI to connect to the database.
-- `DB_ADMIN_USERNAME`: The username of a database user that has privileges to create and remove databases.
-- `DB_ADMIN_PASSWORD`: The password of a database user that has privileges to create and remove databases.
-- `CONVERGENCE_ADMIN_USERNAME`: The username of default Convergence admin user.  The default is `admin`.
-- `CONVERGENCE_ADMIN_PASSWORD`: The password of default Convergence admin user.  The default is `password`.
-- `CONVERGENCE_ADMIN_EMAIL`: The email of default Convergence admin user. The default is `convergence@example.com`.
-- `CONVERGENCE_ADMIN_DISPLAY_NAME`: The display name of default Convergence admin user. The default is `Server Admin`.
-- `EXTERNAL_HOSTNAME`: The externally reachable hostname of this server instance. This is often required if the server is behind a proxy, or hosted in a container environment which uses DNS name mappings.  The default is `localhost`.
-- `CONVERGENCE_SERVER_ROLES`: Defines the functionality that this instance of the server will provide. A comma separated list can be provided. Valid values are: `backend`, `restApi`, and `realtimeApi`.
-- `CONVERGENCE_CLUSTER_SEEDS`: A comma separated list of seed nodes in order for the server to join the cluster. This can be set to `localhost` if no cluster seeds are used and only one server container is run.
-- `CONVERGENCE_LOG4J_CONFIG_FILE`: The path to an alternate log4j2.xml file to configure logging.
+- **`DB_URI`**: Provides the URI to connect to the database.
+- **`DB_ADMIN_USERNAME`**: The username of a database user that has privileges to create and remove databases.
+- **`DB_ADMIN_PASSWORD`**: The password of a database user that has privileges to create and remove databases.
+- **`CONVERGENCE_ADMIN_USERNAME`**: The username of default Convergence admin user.  The default is `admin`.
+- **`CONVERGENCE_ADMIN_PASSWORD`**: The password of default Convergence admin user.  The default is `password`.
+- **`CONVERGENCE_ADMIN_EMAIL`**: The email of default Convergence admin user. The default is `convergence@example.com`.
+- **`CONVERGENCE_ADMIN_DISPLAY_NAME`**: The display name of default Convergence admin user. The default is `Server Admin`.
+- **`EXTERNAL_HOSTNAME`**: The externally reachable hostname of this server instance. This is often required if the server is behind a proxy, or hosted in a container environment which uses DNS name mappings.  The default is `localhost`.
+- **`CONVERGENCE_SERVER_ROLES`**: Defines the functionality that this instance of the server will provide. A comma separated list can be provided. Valid values are: `backend`, `restApi`, and `realtimeApi`.
+- **`CONVERGENCE_CLUSTER_SEEDS`**: A comma separated list of seed nodes in order for the server to join the cluster. This can be set to `localhost` if no cluster seeds are used and only one server container is run.
+- **`CONVERGENCE_LOG4J_CONFIG_FILE`**: The path to an alternate log4j2.xml file to configure logging.
 
 ### Example Run Command
 Running the container might look something like this:
@@ -42,7 +42,7 @@ docker run --rm \
 *Note the use of `--link` see below for how to set up an orientdb container*
 
 ### Ports
-- Port 2551 will be exposed to support akka remoting.
+- Port `2551` will be exposed to support akka remoting.
 - If the `restApi` role is activated, the REST API will be served on port `8081`.
 - If the `realtimeApi` role is activated, the Realtime API will be served on port `8080`.
 
