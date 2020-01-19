@@ -1,0 +1,10 @@
+language: java
+
+env:
+  - DOCKER_REPO=convergencelabs/convergence-server
+
+services:
+  - docker
+
+script:
+ - docker build -t $DOCKER_REPO src
