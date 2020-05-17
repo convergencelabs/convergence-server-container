@@ -58,7 +58,7 @@ docker run --rm --name orientdb \
   -p 2424:2424 \
   -p 2480:2480 \
   -e ORIENTDB_ROOT_PASSWORD=password \
-  orientdb:3.0.26
+  orientdb:3.0.31
 ```
 
 ## Support
@@ -66,6 +66,7 @@ docker run --rm --name orientdb \
 
 - Please use the [Convergence Community Forum](https://forum.convergence.io) for general and technical questions, so the whole community can benefit.
 - For paid dedicated support or custom development services, [contact us](https://convergence.io/contact-sales/) directly.
+- Chat with us on the [Convergence Public Slack](https://slack.convergence.io).
 - Email <support@convergencelabs.com> for all other inquiries.
 
 ## License
