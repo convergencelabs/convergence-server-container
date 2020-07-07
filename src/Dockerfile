@@ -34,6 +34,7 @@ COPY convergence-server.conf /opt/convergence-server/conf/convergence-server.con
 
 EXPOSE 8080
 EXPOSE 8081
+EXPOSE 25520
 
 WORKDIR /opt/convergence-server/
 

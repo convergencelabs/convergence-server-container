@@ -21,8 +21,10 @@ The container supports the following environment variables:
 - **`CONVERGENCE_ADMIN_PASSWORD`**: The password of default Convergence admin user.  The default is `password`.
 - **`CONVERGENCE_ADMIN_EMAIL`**: The email of default Convergence admin user. The default is `convergence@example.com`.
 - **`CONVERGENCE_ADMIN_DISPLAY_NAME`**: The display name of default Convergence admin user. The default is `Server Admin`.
-- **`EXTERNAL_HOSTNAME`**: The externally reachable hostname of this server instance. This is often required if the server is behind a proxy, or hosted in a container environment which uses DNS name mappings.  The default is `localhost`.
-- **`EXTERNAL_PORT`**: The externally reachable port of this server instance. This is often required if the server is behind a proxy.  The default is `25520`.
+- **`REMOTING_BIND_HOSTNAME`**: The hostname Akka remoting will bind to. The default is `0.0.0.0`.
+- **`REMOTING_BIND_PORT`**: The port Akka remote will bind to. The default is `25520`.
+- **`REMOTING_EXTERNAL_HOSTNAME`**: The externally reachable hostname of this server instance. This is often required if the server is behind a proxy, or hosted in a container environment which uses DNS name mappings.  The default is `localhost`.
+- **`REMOTING_EXTERNAL_PORT`**: The externally reachable port of this server instance. This is often required if the server is behind a proxy.  The default is `25520`.
 - **`CONVERGENCE_SERVER_ROLES`**: Defines the functionality that this instance of the server will provide. A comma separated list can be provided. Valid values are: `backend`, `restApi`, and `realtimeApi`.
 - **`CONVERGENCE_CLUSTER_SEEDS`**: A comma separated list of seed nodes in order for the server to join the cluster. This can be set to `localhost` if no cluster seeds are used and only one server container is run.
 - **`CONVERGENCE_LOG4J_CONFIG_FILE`**: The path to an alternate log4j2.xml file to configure logging.
