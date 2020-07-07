@@ -22,6 +22,7 @@ The container supports the following environment variables:
 - **`CONVERGENCE_ADMIN_EMAIL`**: The email of default Convergence admin user. The default is `convergence@example.com`.
 - **`CONVERGENCE_ADMIN_DISPLAY_NAME`**: The display name of default Convergence admin user. The default is `Server Admin`.
 - **`EXTERNAL_HOSTNAME`**: The externally reachable hostname of this server instance. This is often required if the server is behind a proxy, or hosted in a container environment which uses DNS name mappings.  The default is `localhost`.
+- **`EXTERNAL_PORT`**: The externally reachable port of this server instance. This is often required if the server is behind a proxy.  The default is `25520`.
 - **`CONVERGENCE_SERVER_ROLES`**: Defines the functionality that this instance of the server will provide. A comma separated list can be provided. Valid values are: `backend`, `restApi`, and `realtimeApi`.
 - **`CONVERGENCE_CLUSTER_SEEDS`**: A comma separated list of seed nodes in order for the server to join the cluster. This can be set to `localhost` if no cluster seeds are used and only one server container is run.
 - **`CONVERGENCE_LOG4J_CONFIG_FILE`**: The path to an alternate log4j2.xml file to configure logging.
@@ -31,7 +32,7 @@ Running the container might look something like this:
 
 ```shell script
 docker run --rm \
-  --publish 2551:2551 \
+  --publish 25520:25520 \
   --publish 8080:8080 \
   --publish 8081:8081 \
   --env DB_URI="remote:orientdb:2424" \
@@ -46,7 +47,7 @@ docker run --rm \
 *Note the use of `--link` see below for how to set up an orientdb container*
 
 ### Ports
-- Port `2551` will be exposed to support akka remoting.
+- Port `25520` will be exposed to support akka remoting.
 - If the `restApi` role is activated, the REST API will be served on port `8081`.
 - If the `realtimeApi` role is activated, the Realtime API will be served on port `8080`.
 
