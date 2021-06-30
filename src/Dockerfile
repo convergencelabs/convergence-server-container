@@ -1,16 +1,15 @@
 ##
 ## Builder Container
 ##
-FROM alpine:3.9 as builder
+FROM alpine:3.14 as builder
 
 # Convergence Server Configs
-ENV CONVERGENCE_SERVER_VERSION 1.0.0-rc.8
-ENV CONVERGENCE_SERVER_MD5 62aeea0ded9338b1bd88b4fe6ccea3fb
-ENV CONVERGENCE_SERVER_SHA1 a52b2be24df7c017e315acf92b7a0d1f4b0db116
+ENV CONVERGENCE_SERVER_VERSION 1.0.0-rc.9
+ENV CONVERGENCE_SERVER_MD5 f593485b8cadedf9c37b382677a68c2d
+ENV CONVERGENCE_SERVER_SHA1 a999f942e66a452bf17ddb1dbea44c8ced86b241
 
 # Install utils
 RUN apk add --update tar curl
-
 
 # Download the Convergence Server Universal Distribution
 COPY download-convergence-server.sh /tmp
@@ -21,7 +20,7 @@ RUN tar -zxvf /tmp/convergence-server.tgz -C /tmp/convergence-server --strip-com
 ##
 ## Runtime Container
 ##
-FROM openjdk:11.0.4-jdk
+FROM openjdk:11.0.11-9-jdk
 
 LABEL maintainer="Convergence Labs, Inc."
 

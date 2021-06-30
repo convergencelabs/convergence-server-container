@@ -2,7 +2,7 @@
 
 # Assumes an OrientDB container is running under the name orientdb on port 2424.
 
-# Run the continaer
+# Run the container
 docker run --rm \
   --publish 2551:2551 \
   --publish 8080:8080 \
