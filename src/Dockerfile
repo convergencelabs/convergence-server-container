@@ -24,17 +24,27 @@ FROM openjdk:11.0.11-9-jdk
 
 LABEL maintainer="Convergence Labs, Inc."
 
-ADD convergence-server.conf /etc/convergence/convergence-server.conf
+## Create convergence group and user to run as a non root user.
+RUN groupadd -g 5000 convergence && \
+    useradd -u 5000 -g convergence convergence
+
+COPY convergence-server.conf /etc/convergence/convergence-server.conf
 
 COPY --from=builder /tmp/convergence-server /opt/convergence-server
 
 COPY log4j2.xml /opt/convergence-server/conf/log4j2.xml
 COPY convergence-server.conf /opt/convergence-server/conf/convergence-server.conf
 
+RUN chown -R convergence:convergence /opt/convergence-server && \
+    chown -R convergence:convergence /etc/convergence
+
 EXPOSE 8080
 EXPOSE 8081
 EXPOSE 25520
 
 WORKDIR /opt/convergence-server/
+
+## Execut as the convergence user.
+USER convergence
 
 ENTRYPOINT ["/opt/convergence-server/bin/convergence-server"]

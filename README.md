@@ -1,11 +1,9 @@
-<div align="center">
-  <img alt="Convergence Logo" height="80" src="https://convergence.io/assets/img/convergence-logo.png" >
-</div>
+<img alt="Convergence Logo" height="80" src="https://convergence.io/assets/img/convergence-logo.png" >
 
 # Convergence Server Container
 [![Build Status](https://travis-ci.org/convergencelabs/convergence-server-container.svg?branch=master)](https://travis-ci.org/convergencelabs/convergence-server-container)
 
-The Convergence Server provide the core services of the Convergence Realtime Collaboration Framework. Convergence enables developers to rapidly integrate realtime collaboration directly into their applications.
+The Convergence Server provides the core services of the Convergence Realtime Collaboration Framework. Convergence enables developers to rapidly integrate realtime collaboration directly into their applications.
 
 This repository contains the [OCI](https://www.opencontainers.org/) container build for the Convergence Server. It makes use of the Convergence Server Universal distribution that is published to [Maven Central](https://repo1.maven.org/maven2/com/convergencelabs/convergence-server-universal/).
 
@@ -61,7 +59,7 @@ docker run --rm --name orientdb \
   -p 2424:2424 \
   -p 2480:2480 \
   -e ORIENTDB_ROOT_PASSWORD=password \
-  orientdb:3.0.31
+  orientdb:3.0.37
 ```
 
 ## Support
