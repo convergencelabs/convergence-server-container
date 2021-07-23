@@ -44,7 +44,7 @@ EXPOSE 25520
 
 WORKDIR /opt/convergence-server/
 
-## Execut as the convergence user.
+## Execute as the convergence user.
 USER convergence
 
 ENTRYPOINT ["/opt/convergence-server/bin/convergence-server"]
